@@ -39,7 +39,8 @@ module.exports = function (options, done) {
   // magic starts here
   app.use('/', router(options))
 
-  app.listen(options.port)
+  const PORT = process.env.PORT || options.port
+  app.listen(PORT)
 
   if (typeof done === 'function') {
     done()
